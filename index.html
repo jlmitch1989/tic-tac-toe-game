@@ -5,6 +5,7 @@
 
       <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
 
@@ -30,6 +31,7 @@
                 <ul class="dropdown-menu">
                   <li class="sign-up"><a href="#">Sign Up</a></li>
                   <li class="sign-in"><a href="#">Sign In</a></li>
+                  <li class="change-password"><a href="#">Change Password</a></li>
                   <li class="sign-out"><a href="#">Sign Out</a></li>
                 </ul>
               </li>
@@ -52,8 +54,8 @@
             </div>
             <div class="modal-body">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
-                <input type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
+                <input type="text" class="form-control username-info" placeholder="Username" aria-describedby="basic-addon1">
+                <input type="password" class="form-control password-info" placeholder="Password" aria-describedby="basic-addon1">
               </div>
             </div>
             <div class="modal-footer">
@@ -90,6 +92,31 @@
       </div>
 
 <!-- END OF SIGN IN MODAL -->
+
+<!-- START CHANGE PASSWORD MODAL -->
+
+<div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Change Password</h4>
+      </div>
+      <div class="modal-body">
+        <div class="input-group">
+          <input type="password" class="form-control" placeholder="Old Password" aria-describedby="basic-addon1">
+          <input type="password" class="form-control" placeholder="New Password" aria-describedby="basic-addon1">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary save-change-password">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- END CHANGE PASSWORD MODAL -->
 
 
 <!-- START OF SIGN OUT MODAL -->
