@@ -3,6 +3,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 .title {
   margin-bottom: 5%;
+  margin-left: -53px;
   overflow: hidden;
   text-align: center;
 }
@@ -57,7 +58,17 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   border-bottom: 0;
   border-right: 0;
 }
+// GAME BOARD END
 
+.clear-board {
+  margin: 0 auto;
+  height: 50px;
+  width: 50px;
+}
+
+.clear {
+  margin: 0 auto;
+}
 
 // @media screen and (max-width:959px) {
 //   .game-board {
