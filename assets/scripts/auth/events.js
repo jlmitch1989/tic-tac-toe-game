@@ -5,8 +5,8 @@ const getFormFields = require('../../../lib/get-form-fields');
 const api = require('./api');
 const ui = require('./ui');
 
-// const toePic = <img src="./assets/toe-pic.jpg">;
-// const ticTacPic = <img src="./assets/tic-tac-pic.jpg">;
+const toePic = ('./assets/toe-pic.jpg');
+const ticTacPic = ('./assets/tic-tac-pic.jpg');
 
 // SIGNIN / SIGNUP/ SIGNOUT / CHANGE PASSWORD
 const onSignUp = function (event) {
@@ -44,7 +44,8 @@ const onSignOut = function (event) {
 
 // CLICK MOVES
 const onMove = function (event) {
-  console.log('you click me');
+  console.log(toePic);
+
 };
 
 const addHandlers = () => {
@@ -52,15 +53,8 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn);
   $('#change-password').on('submit', onChangePassword);
   $('#sign-out').on('submit', onSignOut);
-  $('.tile-a').on('click', onMove);
-  $('.tile-b').on('click', onMove);
-  $('.tile-c').on('click', onMove);
-  $('.tile-d').on('click', onMove);
-  $('.tile-e').on('click', onMove);
-  $('.tile-f').on('click', onMove);
-  $('.tile-g').on('click', onMove);
-  $('.tile-h').on('click', onMove);
-  $('.tile-i').on('click', onMove);
+  $('.tile-a, .tile-b, .tile-c, .tile-d, .tile-e, .tile-f, .tile-g, .tile-h, .tile-i').on('click', onMove);
+  
 };
 
 module.exports = {
