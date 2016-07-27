@@ -1,9 +1,76 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
-
-.square {
-  border: 1px solid black;
-  height: 163px;
-  max-width: 150px;
+.title {
+  margin-bottom: 5%;
+  overflow: hidden;
+  text-align: center;
 }
+
+// Game Board Styling
+.game-board {
+  margin: 0 auto;
+  height: 500px;
+  width: 500px;
+}
+
+.game-tile {
+  border: 1px black solid;
+  float: left;
+  height: 30%;
+  overflow: hidden;
+  width: 30%;
+}
+
+.tile-a {
+  border-left: 0;
+  border-top: 0;
+}
+
+.tile-b {
+  border-top: 0;
+}
+
+.tile-c {
+  border-right: 0;
+  border-top: 0;
+}
+
+.tile-d {
+  border-left: 0;
+}
+
+.tile-f {
+  border-right: 0;
+}
+
+.tile-g {
+  border-bottom: 0;
+  border-left: 0;
+}
+
+.tile-h {
+  border-bottom: 0;
+}
+
+.tile-i {
+  border-bottom: 0;
+  border-right: 0;
+}
+
+
+// @media screen and (max-width:959px) {
+//   .game-board {
+//     width: 100%;
+//   }
+//   .row {
+//     width: 100%;
+//   }
+//   .column {
+//     width: 25%;
+//   }
+// }
+//
+// @media screen and (max-width:1200px) {
+//
+// }
