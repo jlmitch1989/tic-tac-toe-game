@@ -47,6 +47,7 @@ const onSignOut = function (event) {
 // SIGNIN / SIGNUP/ SIGNOUT / CHANGE PASSWORD END
 
 
+//GET WINNER FUNCTION
 const getWinner = function() {
 if (gameBoardArray[0] === 'x' &&      //Start of rows for 'x'
     gameBoardArray[1] === 'x' &&
@@ -78,7 +79,7 @@ if (gameBoardArray[2] === 'x' &&
     gameBoardArray[8] === 'x') {
       return 'x';
     }
-if (gameBoardArray[0] === 'x' &&        //Start of diagnols for 'x'
+if (gameBoardArray[0] === 'x' &&        //Start of diagonals for 'x'
     gameBoardArray[4] === 'x' &&
     gameBoardArray[8] === 'x') {
       return 'x';
@@ -88,8 +89,53 @@ if (gameBoardArray[2] === 'x' &&
     gameBoardArray[6] === 'x') {
       return 'x';
     }
-};
+if (gameBoardArray[0] === 'o' &&      //Start of rows for 'o'
+    gameBoardArray[1] === 'o' &&
+    gameBoardArray[2] === 'o') {
+      return 'o';
+    }
+if (gameBoardArray[3] === 'o' &&
+    gameBoardArray[4] === 'o' &&
+    gameBoardArray[5] === 'o') {
+      return 'o';
+    }
+if (gameBoardArray[6] === 'o' &&
+    gameBoardArray[7] === 'o' &&
+    gameBoardArray[8] === 'o') {
+      return 'o';
+    }
+if (gameBoardArray[0] === 'o' &&      //Start of columns for 'o'
+    gameBoardArray[3] === 'o' &&
+    gameBoardArray[6] === 'o') {
+      return 'o';
+    }
+if (gameBoardArray[1] === 'o' &&
+    gameBoardArray[4] === 'o' &&
+    gameBoardArray[7] === 'o') {
+      return 'o';
+    }
+if (gameBoardArray[2] === 'o' &&
+    gameBoardArray[5] === 'o' &&
+    gameBoardArray[8] === 'o') {
+      return 'o';
+    }
+if (gameBoardArray[0] === 'o' &&        //Start of diagonals for 'o'
+    gameBoardArray[4] === 'o' &&
+    gameBoardArray[8] === 'o') {
+      return 'o';
+    }
+if (gameBoardArray[2] === 'o' &&
+    gameBoardArray[4] === 'o' &&
+    gameBoardArray[6] === 'o') {
+      return 'o';
+    }
+  };
 
+// const boardFull = function () {
+//   for (let i = 0; i < 9; i++) {
+//     return gameBoardArray[i];
+//   }
+// };
 
 // GAME LOGIC
 const onTurn = function () {
@@ -111,13 +157,38 @@ const onTurn = function () {
       // console.log('second person');
     }
       counter++;
-      // console.log('The count is ' + counter);
-    if (counter < 3) {
-      return;
-    }
-    //Check for winner function
+      //if getWinner returns 'x'or 'o'
+      if (getWinner() === 'x') {
+        //game is won.
+        console.log('X won');
+        //end game and announce winner
+        $('.announcement').text('Tic-tac has won!')
+      }else if (getWinner() === 'o') {
+        console.log('O Won');
+        //end game and announce winner
+        $('.announcement').text('Toe has won!')
+      }else if (counter === 10) {
+        console.log('Draw');
+        //end game and announce winner
+        $('.announcement').text('Draw!');
 
-    }
+      }
+        //start a new game
+      //check if board is full counter is 10 and no winner
+        //it's a draw
+  }
+};
+
+//on click of clear button
+const clearBoard = function() {
+  //empty gameBoardArray
+  gameBoardArray = [];
+  //clear images
+  $('.game-tile').each(function() {
+    $(this).css("background-image", "none");
+  });
+  //counter needs to be reset
+  counter = 1;
 };
 
 const addHandlers = () => {
@@ -126,6 +197,7 @@ const addHandlers = () => {
   $('#change-password').on('submit', onChangePassword);
   $('#sign-out').on('submit', onSignOut);
   $('.game-tile').on('click', onTurn);
+  $('.clearButton').on('click', clearBoard);
 };
 
 module.exports = {
