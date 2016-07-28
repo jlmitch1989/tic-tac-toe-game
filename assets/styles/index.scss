@@ -4,7 +4,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 .title {
   margin-bottom: 5%;
   margin-left: -53px;
-  overflow: hidden;
+  // overflow: hidden;
   text-align: center;
 }
 
@@ -21,6 +21,8 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   height: 30%;
   overflow: hidden;
   width: 30%;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .tile-a {
@@ -61,7 +63,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 img {
   height: 150px;
-  width: 150px; 
+  width: 150px;
 }
 
 // GAME BOARD END

@@ -1,12 +1,12 @@
 'use strict';
-
+let counter = 1;
 const getFormFields = require('../../../lib/get-form-fields');
 
 const api = require('./api');
 const ui = require('./ui');
 
-const toePic = ('./assets/toe-pic.jpg');
-const ticTacPic = ('./assets/tic-tac-pic.jpg');
+const toePic = ('assets/toe-pic.jpg');
+const ticTacPic = ('assets/tic-tac-pic.jpg');
 
 // SIGNIN / SIGNUP/ SIGNOUT / CHANGE PASSWORD
 const onSignUp = function (event) {
@@ -43,9 +43,30 @@ const onSignOut = function (event) {
 // SIGNIN / SIGNUP/ SIGNOUT / CHANGE PASSWORD END
 
 // CLICK MOVES
-const onMove = function (event) {
-  console.log(toePic);
 
+const onTurn = function () {
+  let tile = $(this);
+  if (tile.attr('style')) {
+    return;
+  }
+  else {
+    if (counter % 2) {
+      //first person logic
+      $(this).css("background-image" , 'url("' + ticTacPic + '")');
+      // console.log('first person');
+    }
+    else {
+      //second person logic
+      $(this).css("background-image" , 'url("' + toePic + '")');
+      // console.log('second person');
+    }
+      counter ++;
+    //Check for winner
+    if (counter < 3) {
+      return;
+    }
+    //Check for winner function 
+    }
 };
 
 const addHandlers = () => {
@@ -53,8 +74,7 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn);
   $('#change-password').on('submit', onChangePassword);
   $('#sign-out').on('submit', onSignOut);
-  $('.tile-a, .tile-b, .tile-c, .tile-d, .tile-e, .tile-f, .tile-g, .tile-h, .tile-i').on('click', onMove);
-  
+  $('.game-tile').on('click', onTurn);
 };
 
 module.exports = {
