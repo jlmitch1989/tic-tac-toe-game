@@ -162,11 +162,11 @@ const onTurn = function () {
         //game is won.
         console.log('X won');
         //end game and announce winner
-        $('.announcement').text('Tic-tac has won!')
+        $('.announcement').text('Tic-tac has won!');
       }else if (getWinner() === 'o') {
         console.log('O Won');
         //end game and announce winner
-        $('.announcement').text('Toe has won!')
+        $('.announcement').text('Toe has won!');
       }else if (counter === 10) {
         console.log('Draw');
         //end game and announce winner
@@ -197,7 +197,7 @@ const addHandlers = () => {
   $('#change-password').on('submit', onChangePassword);
   $('#sign-out').on('submit', onSignOut);
   $('.game-tile').on('click', onTurn);
-  $('.clearButton').on('click', clearBoard);
+  $('.clear-button').on('click', clearBoard);
 };
 
 module.exports = {

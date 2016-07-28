@@ -65,31 +65,17 @@ img {
   height: 150px;
   width: 150px;
 }
-
 // GAME BOARD END
 
-.clear-board {
+
+// ANNOUNCEMENT and RESTART BUTTON
+.announcement {
+  border: 1px black solid;
+  height: 20px;
+  width: 150px;
   margin: 0 auto;
-  height: 50px;
-  width: 50px;
 }
 
-.clear {
+.clear-button {
   margin: 0 auto;
 }
-
-// @media screen and (max-width:959px) {
-//   .game-board {
-//     width: 100%;
-//   }
-//   .row {
-//     width: 100%;
-//   }
-//   .column {
-//     width: 25%;
-//   }
-// }
-//
-// @media screen and (max-width:1200px) {
-//
-// }
