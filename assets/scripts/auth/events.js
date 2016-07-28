@@ -185,10 +185,11 @@ const clearBoard = function() {
   gameBoardArray = [];
   //clear images
   $('.game-tile').each(function() {
-    $(this).css("background-image", "none");
+    $(this).removeAttr('style');
   });
   //counter needs to be reset
   counter = 1;
+  //clear announcement
 };
 
 const addHandlers = () => {
