@@ -48,12 +48,46 @@ const onSignOut = function (event) {
 
 
 const getWinner = function() {
-if (gameBoardArray[0] === 'x' &&
+if (gameBoardArray[0] === 'x' &&      //Start of rows for 'x'
     gameBoardArray[1] === 'x' &&
     gameBoardArray[2] === 'x') {
-  return 'x';
+      return 'x';
     }
-
+if (gameBoardArray[3] === 'x' &&
+    gameBoardArray[4] === 'x' &&
+    gameBoardArray[5] === 'x') {
+      return 'x';
+    }
+if (gameBoardArray[6] === 'x' &&
+    gameBoardArray[7] === 'x' &&
+    gameBoardArray[8] === 'x') {
+      return 'x';
+    }
+if (gameBoardArray[0] === 'x' &&      //Start of columns for 'x'
+    gameBoardArray[3] === 'x' &&
+    gameBoardArray[6] === 'x') {
+      return 'x';
+    }
+if (gameBoardArray[1] === 'x' &&
+    gameBoardArray[4] === 'x' &&
+    gameBoardArray[7] === 'x') {
+      return 'x';
+    }
+if (gameBoardArray[2] === 'x' &&
+    gameBoardArray[5] === 'x' &&
+    gameBoardArray[8] === 'x') {
+      return 'x';
+    }
+if (gameBoardArray[0] === 'x' &&        //Start of diagnols for 'x'
+    gameBoardArray[4] === 'x' &&
+    gameBoardArray[8] === 'x') {
+      return 'x';
+    }
+if (gameBoardArray[2] === 'x' &&
+    gameBoardArray[4] === 'x' &&
+    gameBoardArray[6] === 'x') {
+      return 'x';
+    }
 };
 
 
