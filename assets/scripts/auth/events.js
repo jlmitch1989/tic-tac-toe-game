@@ -1,5 +1,8 @@
 'use strict';
+
+let gameBoardArray = [];
 let counter = 1;
+
 const getFormFields = require('../../../lib/get-form-fields');
 
 const api = require('./api');
@@ -7,6 +10,7 @@ const ui = require('./ui');
 
 const toePic = ('assets/toe-pic.jpg');
 const ticTacPic = ('assets/tic-tac-pic.jpg');
+
 
 // SIGNIN / SIGNUP/ SIGNOUT / CHANGE PASSWORD
 const onSignUp = function (event) {
@@ -42,30 +46,43 @@ const onSignOut = function (event) {
 };
 // SIGNIN / SIGNUP/ SIGNOUT / CHANGE PASSWORD END
 
-// CLICK MOVES
 
+const getWinner = function() {
+if (gameBoardArray[0] === 'x' &&
+    gameBoardArray[1] === 'x' &&
+    gameBoardArray[2] === 'x') {
+  return 'x';
+    }
+
+};
+
+
+// GAME LOGIC
 const onTurn = function () {
-  let tile = $(this);
-  if (tile.attr('style')) {
+  let $tile = $(this);
+  if ($tile.attr('style')) {
     return;
-  }
-  else {
+  }else {
     if (counter % 2) {
       //first person logic
-      $(this).css("background-image" , 'url("' + ticTacPic + '")');
+      $tile.css("background-image" , 'url("' + ticTacPic + '")');
+      let index = parseInt($tile.data('index'), 10);
+      gameBoardArray[index] = 'x';
       // console.log('first person');
-    }
-    else {
+    }else {
       //second person logic
-      $(this).css("background-image" , 'url("' + toePic + '")');
+      $tile.css("background-image" , 'url("' + toePic + '")');
+      let index = parseInt($tile.data('index'), 10);
+      gameBoardArray[index] = 'o';
       // console.log('second person');
     }
-      counter ++;
-    //Check for winner
+      counter++;
+      // console.log('The count is ' + counter);
     if (counter < 3) {
       return;
     }
-    //Check for winner function 
+    //Check for winner function
+
     }
 };
 
