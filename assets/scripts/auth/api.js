@@ -32,9 +32,38 @@ const signOut = () => $.ajax({
     },
   });
 
+
+// GAME AJAX
+const createGame = () => $.ajax({
+    url: app.api + '/games/',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+  });
+
+const updateGame = (y, g, h) => $.ajax({
+  url: app.api + '/games/' + app.game.id,
+  method: 'PATCH',
+  headers: {
+    Authorization: 'Token token=' + app.user.token,
+  },
+  data: {
+  "game": {
+    "cell": {
+      "index": y,
+      "value": g
+    },
+    "over": h
+  }
+}
+});
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  createGame,
+  updateGame
 };

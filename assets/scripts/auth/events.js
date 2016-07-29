@@ -46,6 +46,18 @@ const onSignOut = function (event) {
 };
 // SIGNIN / SIGNUP/ SIGNOUT / CHANGE PASSWORD END
 
+//create
+const startGame = function (event) {
+  event.preventDefault();
+  api.createGame()
+    .done(ui.createGameSuccess)
+    .fail(ui.failure);
+};
+
+// const patchGame = function () {
+//
+// };
+
 
 //GET WINNER FUNCTION
 const getWinner = function() {
@@ -131,11 +143,6 @@ if (gameBoardArray[2] === 'o' &&
     }
   };
 
-// const boardFull = function () {
-//   for (let i = 0; i < 9; i++) {
-//     return gameBoardArray[i];
-//   }
-// };
 
 // GAME LOGIC
 const onTurn = function () {
@@ -167,17 +174,16 @@ const onTurn = function () {
         console.log('O Won');
         //end game and announce winner
         $('.announcement').text('Toe has won!');
+        //it's a draw
       }else if (counter === 10) {
         console.log('Draw');
         //end game and announce winner
         $('.announcement').text('Draw!');
 
       }
-        //start a new game
-      //check if board is full counter is 10 and no winner
-        //it's a draw
   }
 };
+
 
 //on click of clear button
 const clearBoard = function() {
@@ -190,7 +196,9 @@ const clearBoard = function() {
   //counter needs to be reset
   counter = 1;
   //clear announcement
+  $('.announcement').text('');
 };
+
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp);
@@ -199,6 +207,8 @@ const addHandlers = () => {
   $('#sign-out').on('submit', onSignOut);
   $('.game-tile').on('click', onTurn);
   $('.clear-button').on('click', clearBoard);
+  $('.start-button').on('click', startGame);
+  // $('.game-tile').on('click', patchGame);
 };
 
 module.exports = {

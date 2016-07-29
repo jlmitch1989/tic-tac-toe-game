@@ -20,10 +20,18 @@ const failure = (error) => {
   console.error(error);
 };
 
+// Game AJAX
+const createGameSuccess = (data) => {
+  app.game = data.game;
+  console.log(app);
+};
+
+
 
 module.exports = {
   failure,
   success,
   signInSuccess,
-  signOutSuccess
+  signOutSuccess,
+  createGameSuccess
 };
