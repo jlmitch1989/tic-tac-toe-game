@@ -37,6 +37,12 @@ const patchGameSuccess = (data) => {
   console.log(app);
 };
 
+const getGamesSuccess = (data) => {
+  // console.log('ASS');
+  app.getGame = data.games;
+  console.log(app);
+  $('.results').text("User has played " + app.getGame.length + " games!");
+};
 
 
 module.exports = {
@@ -45,5 +51,6 @@ module.exports = {
   signInSuccess,
   signOutSuccess,
   createGameSuccess,
-  patchGameSuccess
+  patchGameSuccess,
+  getGamesSuccess
 };

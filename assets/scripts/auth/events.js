@@ -60,6 +60,13 @@ const patchGame = function (i, v, b) {
     .done(ui.patchGameSuccess)
     .fail(ui.failure);
 };
+// GET games
+const showGames = function () {
+  // console.log('HELLLLLO');
+  api.getGames()
+    .done(ui.getGamesSuccess)
+    .fail(ui.failure);
+};
 
 
 //GET WINNER FUNCTION
@@ -186,15 +193,21 @@ const onTurn = function () {
         console.log('X won');
         //end game and announce winner
         $('.announcement').text('Tic-tac has won!');
+        // shows get record button
+        $('.record-button').show();
       }else if (getWinner() === 'o') {
         console.log('O Won');
         //end game and announce winner
         $('.announcement').text('Toe has won!');
+        // shows get record button
+        $('.record-button').show();
         //it's a draw
       }else if (counter === 10) {
         console.log('Draw');
         //end game and announce winner
         $('.announcement').text('Draw!');
+        // shows get record button
+        $('.record-button').show();
 
       }
   }
@@ -213,6 +226,7 @@ const clearBoard = function() {
   counter = 1;
   //clear announcement
   $('.announcement').text('');
+  $('.results').text('');
 };
 
 
@@ -224,8 +238,10 @@ const addHandlers = () => {
   $('.game-tile').on('click', onTurn);
   $('.clear-button').on('click', clearBoard);
   $('.start-button').on('click', startGame);
+  $('.record-button').on('click', showGames);
   $('.game-board').hide();
   $('.clear-button').hide();
+  $('.record-button').hide();
 };
 
 module.exports = {

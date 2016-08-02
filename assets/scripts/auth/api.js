@@ -59,11 +59,20 @@ const updateGame = (i, v, b) => $.ajax({
 }
 });
 
+const getGames = () => $.ajax({
+  url: app.api + '/games/',
+  method: 'GET',
+  headers: {
+    Authorization: 'Token token=' + app.user.token,
+  },
+});
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
   signOut,
   createGame,
-  updateGame
+  updateGame,
+  getGames
 };
