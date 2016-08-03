@@ -1,6 +1,7 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+// Desktop first
 .title {
   margin-bottom: 2%;
   margin-left: -53px;
@@ -22,7 +23,6 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 // Game record button and results
 .results {
-  height: 20px;
   width: 150px;
   margin-left: 511px;
   margin-top: 32px;
@@ -30,9 +30,14 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   text-align: center;
   color: red;
   font-size: 20px;
+  height: 20px;
 }
-.game-record {
+
+.get-record {
   text-align: center;
+  margin-left: -48px;
+  margin-bottom: 35px;
+  margin-top: 50px;
 }
 
 .create {
@@ -104,4 +109,11 @@ img {
 .restart {
   text-align: center;
   margin-left: -48px;
+}
+
+
+@media (max-width: 510px ) {
+  . {
+
+  }
 }
