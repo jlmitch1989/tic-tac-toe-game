@@ -53,10 +53,20 @@ const startGame = function (event) {
     .done(ui.createGameSuccess)
     .fail(ui.failure);
 };
-
-// const patchGame = function () {
-//
-// };
+//update
+const patchGame = function (i, v, b) {
+  // console.log('patch game function');
+  api.updateGame(i, v, b)
+    .done(ui.patchGameSuccess)
+    .fail(ui.failure);
+};
+// GET games
+const showGames = function () {
+  // console.log('HELLLLLO');
+  api.getGames()
+    .done(ui.getGamesSuccess)
+    .fail(ui.failure);
+};
 
 
 //GET WINNER FUNCTION
@@ -141,11 +151,22 @@ if (gameBoardArray[2] === 'o' &&
     gameBoardArray[6] === 'o') {
       return 'o';
     }
+
   };
 
 
 // GAME LOGIC
 const onTurn = function () {
+  //Determines if game is still going or ends
+  let endGame = function() {
+    if (getWinner() === 'x' || getWinner() === 'o') {
+      // console.log('TRUE');
+      return true;
+    }else {
+      // console.log('FALSE');
+      return false;
+    }
+  };
   let $tile = $(this);
   if ($tile.attr('style')) {
     return;
@@ -155,30 +176,38 @@ const onTurn = function () {
       $tile.css("background-image" , 'url("' + ticTacPic + '")');
       let index = parseInt($tile.data('index'), 10);
       gameBoardArray[index] = 'x';
+      patchGame(index, 'x', endGame());
       // console.log('first person');
     }else {
       //second person logic
       $tile.css("background-image" , 'url("' + toePic + '")');
       let index = parseInt($tile.data('index'), 10);
       gameBoardArray[index] = 'o';
+      patchGame(index, 'o', endGame());
       // console.log('second person');
     }
       counter++;
-      //if getWinner returns 'x'or 'o'
+      //if getWinner returns 'x' or 'o'
       if (getWinner() === 'x') {
         //game is won.
         console.log('X won');
         //end game and announce winner
         $('.announcement').text('Tic-tac has won!');
+        // shows get record button
+        $('.record-button').show();
       }else if (getWinner() === 'o') {
         console.log('O Won');
         //end game and announce winner
         $('.announcement').text('Toe has won!');
+        // shows get record button
+        $('.record-button').show();
         //it's a draw
       }else if (counter === 10) {
         console.log('Draw');
         //end game and announce winner
         $('.announcement').text('Draw!');
+        // shows get record button
+        $('.record-button').show();
 
       }
   }
@@ -197,6 +226,9 @@ const clearBoard = function() {
   counter = 1;
   //clear announcement
   $('.announcement').text('');
+  //clears game results
+  $('.results').text('');
+  $('.record-button').hide();
 };
 
 
@@ -208,7 +240,10 @@ const addHandlers = () => {
   $('.game-tile').on('click', onTurn);
   $('.clear-button').on('click', clearBoard);
   $('.start-button').on('click', startGame);
-  // $('.game-tile').on('click', patchGame);
+  $('.record-button').on('click', showGames);
+  $('.game-board').hide();
+  $('.clear-button').hide();
+  $('.record-button').hide();
 };
 
 module.exports = {

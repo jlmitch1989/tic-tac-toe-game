@@ -1,11 +1,43 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+
 .title {
   margin-bottom: 2%;
   margin-left: -53px;
-  // overflow: hidden;
+
   text-align: center;
+}
+
+// ANNOUNCEMENT
+.announcement {
+  height: 20px;
+  width: 150px;
+  margin-left: 511px;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  text-align: center;
+  color: red;
+  font-size: 20px;
+}
+
+// Game record button and results
+.results {
+  width: 150px;
+  margin-left: 511px;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  text-align: center;
+  color: red;
+  font-size: 20px;
+  height: 20px;
+}
+
+.get-record {
+  text-align: center;
+  margin-left: -48px;
+  margin-bottom: 35px;
+  margin-top: 50px;
 }
 
 .create {
@@ -73,19 +105,15 @@ img {
 // GAME BOARD END
 
 
-// ANNOUNCEMENT and RESTART BUTTON
-.announcement {
-  height: 20px;
-  width: 150px;
-  margin-left: 511px;
-  margin-top: 32px;
-  margin-bottom: 32px;
-  text-align: center;
-  color: red;
-  font-size: 20px;
-}
-
+// Restart button
 .restart {
   text-align: center;
   margin-left: -48px;
 }
+
+
+// @media (max-width: 510px ) {
+//   . {
+//
+//   }
+// }

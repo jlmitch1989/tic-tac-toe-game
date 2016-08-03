@@ -4,13 +4,13 @@ const app = require('../app');
 
 const signUp = (data) => {
   return $.ajax({
-    url: app.api + 'sign-up',
+    url: app.api + '/sign-up/',
     method: 'POST',
     data,
   });
 };
 const signIn = (data) => $.ajax({
-    url: app.api + '/sign-in',
+    url: app.api + '/sign-in/',
     method: 'POST',
     data,
   });
@@ -42,7 +42,7 @@ const createGame = () => $.ajax({
     },
   });
 
-const updateGame = (y, g, h) => $.ajax({
+const updateGame = (i, v, b) => $.ajax({
   url: app.api + '/games/' + app.game.id,
   method: 'PATCH',
   headers: {
@@ -51,12 +51,20 @@ const updateGame = (y, g, h) => $.ajax({
   data: {
   "game": {
     "cell": {
-      "index": y,
-      "value": g
+      "index": i,
+      "value": v
     },
-    "over": h
+    "over": b
   }
 }
+});
+
+const getGames = () => $.ajax({
+  url: app.api + '/games/',
+  method: 'GET',
+  headers: {
+    Authorization: 'Token token=' + app.user.token,
+  },
 });
 
 module.exports = {
@@ -65,5 +73,6 @@ module.exports = {
   changePassword,
   signOut,
   createGame,
-  updateGame
+  updateGame,
+  getGames
 };
