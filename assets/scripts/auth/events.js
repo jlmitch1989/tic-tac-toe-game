@@ -226,7 +226,9 @@ const clearBoard = function() {
   counter = 1;
   //clear announcement
   $('.announcement').text('');
+  //clears game results
   $('.results').text('');
+  $('.record-button').hide();
 };
 
 
